@@ -2,234 +2,159 @@
 <html lang="ro">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BizCore – Programări Online pentru Profesioniști</title>
-    <meta name="description"
-        content="Aplicația premium offline pentru programări, clienți și inventar – unică, fără abonament, plată unică.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <title>BizCore - Soluția Profesioniștilor</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Lato:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Simple carousel script styles (dots) */
-        .carousel-dots button {
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .carousel-dots button.active {
-            background: var(--color-accent);
-        }
-    </style>
 </head>
 
 <body>
-    <nav>
-        <div class="container">
-            <a href="#" class="logo">
-                <div class="logo-mark">B</div>BizCore
-            </a>
-        </div>
-    </nav>
 
-    <section class="hero">
+    <header class="site-navbar">
         <div class="container">
-            <div class="hero-grid">
-                <div class="hero-content">
-                    <div class="hero-tag">BizCore — Programări frizerie, manichiură</div>
-                    <h1>Organizează totul.<br><span>La un alt nivel.</span></h1>
-                    <p class="hero-desc">
-                        Soluția completă pentru profesioniști care nu mai au timp de haos.<br>
-                        Pentru manichiuriste, coafeze, cosmeticiene, măsori și saloane de înfrumusețare.<br>
-                        Oprește pierderile de timp și bani. Începe să lucrezi ca un profesionist adevărat.
-                    </p>
-                    <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager" target="_blank">
-                        <img src="img/google-play-badge.png" alt="Descarcă de pe Google Play" class="play-btn-img">
-                    </a>
-                    <div class="pricing-pill">
-                        59 Lei <span>Plată unică pe viață</span>
+            <div class="logo">BizCore.</div>
+        </div>
+    </header>
+
+    <div class="hero-section">
+        <div class="container">
+            <div class="row-align">
+                <div class="hero-text" style="flex: 1;">
+                    <h1>Soluția completă pentru profesioniști care nu mai au timp de haos.</h1>
+                    <p class="mb-5">Programări • Clienți • Inventar • SMS. <br>Totul 100% Offline pe telefonul tău.</p>
+                    <div style="margin-top: 30px;">
+                        <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager"
+                            class="btn btn-white">Descarcă Acum</a>
                     </div>
                 </div>
-                <div class="phone-wrapper">
-                    <div class="phone-frame">
-                        <div class="phone-notch"></div>
-                        <div class="slider-track" id="carouselTrack">
-                            <img src="img/biz (1).jpg" alt="Screenshot 1">
-                            <img src="img/biz (2).jpg" alt="Screenshot 2">
-                            <img src="img/biz (3).jpg" alt="Screenshot 3">
-                            <img src="img/biz (4).jpg" alt="Screenshot 4">
-                            <img src="img/biz (5).jpg" alt="Screenshot 5">
-                            <img src="img/biz (6).jpg" alt="Screenshot 6">
-                            <img src="img/biz (7).jpg" alt="Screenshot 7">
-                        </div>
-                        <div class="carousel-dots" id="carouselDots"></div>
+                <div class="hero-img" style="flex: 1; text-align: center;">
+                    <div class="phone_wrapper">
+                        <img src="img/biz (1).jpg" alt="App Screenshot" style="width:100%;">
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="features">
+    <div class="features-section">
         <div class="container">
-            <div class="features-grid">
-                <div class="feature-card">
-                    <h3>GESTIONARE PROGRAMĂRI INTELIGENTĂ</h3>
-                    <p>
-                        ▸ Calendar vizual complet — vezi toată săptămâna dintr-o privire<br>
-                        ▸ Sloturi orare personalizate — bazate pe PROGRAMUL TĂU de lucru<br>
-                        ▸ Durate flexibile — 30, 45, 60, 90 sau 120 minute per serviciu<br>
-                        ▸ Conflict detection automat — zero suprapuneri, zero greșeli<br>
-                        ▸ Pauze opționale între clienți — timpul tău de pregătire contează<br>
-                        ▸ Status tracking complet — În așteptare → Confirmat → Finalizat
-                    </p>
-                    <p><strong>Rezultat:</strong> Zero programări pierdute. Zero telefoane ratate. Control total.</p>
+            <div class="section-heading">
+                <h2>De ce să alegi BizCore?</h2>
+                <p class="text-secondary">Funcționalități premium, fără abonament.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+
+                <div class="feature-item">
+                    <div class="feature-icon">📅</div>
+                    <h3>Calendar Inteligent</h3>
+                    <p>Vezi toată săptămâna dintr-o privire. Sloturi flexibile și zero suprapuneri.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>BAZĂ DE DATE CLIENȚI PE TELEFONUL TAU</h3>
-                    <p>
-                        ▸ Profil complet pentru fiecare client — nume, telefon, preferințe<br>
-                        ▸ Istoric programări detaliat — știi exact ce servicii, când și cât<br>
-                        ▸ Căutare instant — găsești pe oricine în sub 2 secunde<br>
-                        ▸ Apel direct din aplicație — un click și vorbești<br>
-                        ▸ Salvare automată — clienți noi adăugați instant la programare
-                    </p>
-                    <p><strong>Rezultat:</strong> Relații client mai bune. Retention mai mare. Bani mai mulți.</p>
+
+                <div class="feature-item">
+                    <div class="feature-icon">👥</div>
+                    <h3>Bază de Clienți</h3>
+                    <p>Istoric complet, căutare instantă și apelare directă din aplicație.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>REMINDER SMS</h3>
-                    <p>
-                        ▸ Template complet personalizabil — mesajul tău, vocea ta<br>
-                        ▸ Trimite în 1 click — economisești ore întregi săptămânal<br>
-                        ▸ Date automate incluse — oră, dată, adresă inserate automat<br>
-                        ▸ Zero programări uitate — clienții primesc reminder profesionist
-                    </p>
-                    <p><strong>Rezultat:</strong> -70% no‑shows. Mai multe programări onorate. Venit predictibil.</p>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>Reminder SMS</h3>
+                    <p>Redu no-show-urile cu 70%. Mesaje personalizate trimise automat.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>GESTIUNE INVENTAR & STOCURI</h3>
-                    <p>
-                        ▸ Tracking complet produse — consumabile, produse vânzare, tot<br>
-                        ▸ Alerte inteligente — notificări pentru stoc scăzut sau critic<br>
-                        ▸ Categorii personalizabile — organizează exact cum vrei<br>
-                        ▸ Valoare totală inventar — vezi investiția ta în timp real<br>
-                        ▸ Ajustare rapidă cantități — update în 3 secunde
-                    </p>
-                    <p><strong>Rezultat:</strong> Nu mai rămâi fără produse. Nu mai suprastochezi. Eficiență maximă.</p>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📦</div>
+                    <h3>Inventar & Stocuri</h3>
+                    <p>Alerte de stoc critic și valoarea totală a investiției în timp real.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>PROGRAM DE LUCRU PERSONALIZAT</h3>
-                    <p>
-                        ▸ Ore diferite pentru fiecare zi — flexibilitate totală<br>
-                        ▸ Zile libere planificate — vacanțe și sărbători pre‑setate<br>
-                        ▸ Program special pentru săptămâni atipice — adaptare instant<br>
-                        ▸ Aplicația știe automat — când ești disponibilă, când nu
-                    </p>
-                    <p><strong>Rezultat:</strong> Clienții văd doar sloturile când CHIAR ești disponibilă.</p>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Offline</h3>
+                    <p>Datele sunt doar la tine. Fără cloud, fără login, fără internet necesar.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>NOTIȚE & ORGANIZARE RAPIDĂ</h3>
-                    <p>
-                        ▸ Notițe instant — ideile nu mai dispar<br>
-                        ▸ Liste de cumpărături — produse de comandat organizate<br>
-                        ▸ To‑do tasks — ce trebuie făcut, când trebuie făcut
-                    </p>
-                    <p><strong>Rezultat:</strong> Tot ce ți‑ar trebui un calendar pe hârtie, dar inteligent.</p>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>O Singură Plată</h3>
+                    <p>Doar 59 lei pe viață. Fără abonamente lunare ascunse.</p>
                 </div>
+
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="features" style="background:#fff;">
-        <div class="container">
-            <h2 style="text-align:center; font-size:2.5rem; margin-bottom:40px;">100% OFFLINE • 100% SECURITATE • 100%
-                AL TĂU</h2>
-            <p style="text-align:center; max-width:800px; margin:0 auto; color:var(--color-muted); font-size:1.1rem;">
-                ▸ Zero internet necesar — funcționează MEREU, oriunde<br>
-                ▸ Zero conturi sau login — deschizi și lucrezi instant<br>
-                ▸ Datele tale rămân pe telefonul TĂU — nu în cloud străin<br>
-                ▸ Export/Import complet — backup sigur când vrei tu<br>
-                ▸ Zero dependență de servere — tu controlezi totul
-            </p>
+    <div class="container">
+
+        <!-- Zig Zag 1 -->
+        <div class="row-align">
+            <div style="flex:1;">
+                <img src="img/biz (2).jpg" alt="Calendar" class="img-fluid">
+            </div>
+            <div style="flex:1;">
+                <h2 class="text-primary">Programări Fără Efort</h2>
+                <p>Calendarul vizual îți permite să vezi golurile din program imediat. Adaugă clienți noi direct din
+                    agenda telefonului sau creează profile pe loc. BizCore verifică automat conflictele.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                    <li style="margin-bottom: 10px;">✓ Durate flexibile (30-120 min)</li>
+                    <li style="margin-bottom: 10px;">✓ Pauze între programări</li>
+                    <li style="margin-bottom: 10px;">✓ Statusuri colorate (Confirmat/Anulat)</li>
+                </ul>
+            </div>
         </div>
-    </section>
 
-    <section class="features" style="background:#f9fafb; padding:80px 0;">
-        <div class="container" style="text-align:center;">
-            <h2 style="font-size:2.5rem; margin-bottom:20px;">DE CE BIZCORE ESTE DIFERIT?</h2>
-            <ul
-                style="list-style:none; padding:0; max-width:800px; margin:0 auto; font-size:1.1rem; color:var(--color-muted);">
-                <li>✓ Simplu și intuitiv — înveți tot în sub 2 minute</li>
-                <li>✓ Rapid ca fulgerul — zero lag, zero așteptare, răspuns instant</li>
-                <li>✓ Complet gratuit — toate funcțiile incluse, fără premium ascuns</li>
-                <li>✓ Fără reclame enervante — experiență curată, profesională</li>
-                <li>✓ Română & Engleză — interfață în limba ta nativă</li>
-            </ul>
+        <!-- Zig Zag 2 -->
+        <div class="row-align reversed">
+            <div style="flex:1;">
+                <img src="img/biz (5).jpg" alt="Clienti" class="img-fluid">
+            </div>
+            <div style="flex:1;">
+                <h2 class="text-primary">Inventar & Rapoarte</h2>
+                <p>Nu mai pierde bani pe produse expirate sau stocuri lipsă. BizCore te anunță când e timpul să faci
+                    comandă și îți arată exact câți bani ai investiți în salon.</p>
+                <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                    <li style="margin-bottom: 10px;">✓ Scanare rapidă consumabile</li>
+                    <li style="margin-bottom: 10px;">✓ Valoare totală inventar</li>
+                    <li style="margin-bottom: 10px;">✓ Ajustare stoc în 3 secunde</li>
+                </ul>
+            </div>
         </div>
-    </section>
 
-    <section class="features" style="background:#fff; padding:80px 0; text-align:center;">
+    </div>
+
+    <div class="pricing-section">
         <div class="container">
-            <h2 style="font-size:2.5rem; margin-bottom:20px;">STOP PIERDERILOR. START PROFESIONALISMULUI.</h2>
-            <p style="font-size:1.2rem; color:var(--color-primary); margin-bottom:30px;">
-                Descărcă BizCore acum și transformă haosul în ordine. Clienții în venit recurent. Timpul în bani.
-            </p>
-            <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager" target="_blank">
-                <img src="img/google-play-badge.png" alt="Descarcă de pe Google Play" class="play-btn-img"
-                    style="width:220px;">
-            </a>
-            <p style="margin-top:20px; font-size:0.9rem; color:var(--color-muted);">Programări • Clienți • Inventar •
-                SMS • Notițe — Totul într‑o aplicație.<br>Zero abonamente. Zero costuri ascunse. Zero bullshit.</p>
+            <div class="section-heading">
+                <h2>Preț Simplu și Onest</h2>
+                <p>Fără "costuri surpriză". Plătești o dată, folosești mereu.</p>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Licență Lifetime</h3>
+                <div class="price">59 Lei <span>/ o singură dată</span></div>
+                <ul style="text-align: left; margin: 30px 0; line-height: 2;">
+                    <li>✅ Toate funcționalitățile incluse</li>
+                    <li>✅ Actualizări gratuite pe viață</li>
+                    <li>✅ Suport prioritar pe email</li>
+                    <li>✅ Fără reclame</li>
+                    <li>✅ 100% Offline & Privat</li>
+                </ul>
+                <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager"
+                    class="btn btn-primary">Cumpără Acum pe Google Play</a>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <footer>
+    <footer class="footer-section">
         <div class="container">
-            <p>© 2026 BizCore. Toate drepturile rezervate.</p>
-            <p style="margin-top:8px; color:var(--color-muted);">contact@bizcore.agency</p>
+            <div class="logo" style="color:#000; margin-bottom: 20px;">BizCore.</div>
+            <p>&copy; 2026 Toate drepturile rezervate.</p>
+            <p><a href="mailto:contact@bizcore.agency" style="color: var(--primary);">contact@bizcore.agency</a></p>
         </div>
     </footer>
 
-    <script>
-        // Simple carousel logic with dots and 5‑second interval
-        const track = document.getElementById('carouselTrack');
-        const images = track.querySelectorAll('img');
-        const dotsContainer = document.getElementById('carouselDots');
-        let currentIndex = 0;
-        const total = images.length;
-
-        // Create dots
-        for (let i = 0; i < total; i++) {
-            const btn = document.createElement('button');
-            btn.setAttribute('aria-label', 'Slide ' + (i + 1));
-            if (i === 0) btn.classList.add('active');
-            btn.addEventListener('click', () => goToSlide(i));
-            dotsContainer.appendChild(btn);
-        }
-        const dots = dotsContainer.querySelectorAll('button');
-
-        function goToSlide(index) {
-            currentIndex = index;
-            const offset = -index * images[0].clientWidth;
-            track.style.transform = `translateX(${offset}px)`;
-            updateDots();
-        }
-        function updateDots() {
-            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-        }
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % total;
-            goToSlide(currentIndex);
-        }
-        // Auto‑advance every 5 seconds
-        let autoPlay = setInterval(nextSlide, 5000);
-        // Pause on hover
-        track.addEventListener('mouseenter', () => clearInterval(autoPlay));
-        track.addEventListener('mouseleave', () => {
-            autoPlay = setInterval(nextSlide, 5000);
-        });
-    </script>
 </body>
 
 </html>
