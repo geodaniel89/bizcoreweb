@@ -1,8 +1,7 @@
-/* Mobland Exact Replica Styles - Fixed Mobile & Images */
+/* Mobland Clean Styles - FIXED MOBILE */
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500|Muli:300,400,700');
 
 :root {
-    --primary: #fd5f00;
     --purple-start: #321575;
     --purple-end: #8D0B93;
     --font-heading: 'Rubik', sans-serif;
@@ -11,12 +10,18 @@
     --heading-color: #000;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: var(--font-body);
     line-height: 1.7;
     color: var(--text-color);
     font-weight: 300;
     overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
 
 h1,
@@ -35,17 +40,15 @@ a {
     text-decoration: none;
 }
 
-/* Custom Mobland Wave & Gradient */
+/* Hero with Wave */
 .hero-section {
     position: relative;
     background: linear-gradient(45deg, var(--purple-start) 0%, var(--purple-end) 100%);
     padding: 8rem 0 16rem 0;
-    /* Extra padding for bottom wave */
     color: #fff;
     margin-bottom: 50px;
 }
 
-/* The WAVE SVG */
 .hero-section::after {
     content: "";
     position: absolute;
@@ -75,7 +78,6 @@ a {
     letter-spacing: .1em;
 }
 
-/* Hero Content */
 .hero-text h1 {
     font-size: 3.5rem;
     color: #fff;
@@ -89,26 +91,22 @@ a {
     margin-bottom: 2rem;
 }
 
-/* Phone Mockup Style - Reusable */
+/* Phone Mockup */
 .phone_mockup {
     width: 280px;
-    /* Slightly smaller for better fit */
     margin: 0 auto;
     background: #111;
     border-radius: 40px;
     border: 10px solid #111;
-    /* Clean black bezel */
     overflow: hidden;
     position: relative;
     box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
-    /* Strong shadow */
 }
 
 .phone_mockup img {
     width: 100%;
     height: auto;
     display: block;
-    object-fit: cover;
 }
 
 .play-badge {
@@ -121,7 +119,7 @@ a {
     transform: translateY(-3px);
 }
 
-/* Feature Grid */
+/* Sections */
 .site-section {
     padding: 4rem 0;
 }
@@ -137,15 +135,12 @@ a {
     color: var(--purple-start);
 }
 
-.text-primary {
-    color: var(--purple-end) !important;
-}
-
+/* Feature Cards (with clean boxes on mobile) */
 .unit-4 {
     margin-bottom: 30px;
     padding: 40px 30px;
     background: #fff;
-    border-radius: 8px;
+    border-radius: 12px;
     transition: .3s all ease;
     text-align: center;
     border: 1px solid #f0f0f0;
@@ -166,11 +161,16 @@ a {
 .unit-4-icon {
     font-size: 40px;
     margin-bottom: 20px;
-    display: block;
-    color: var(--purple-end);
+    display: flex;
+    justify-content: center;
 }
 
-/* Zig Zag Layout */
+.unit-4-icon svg {
+    width: 60px;
+    height: 60px;
+}
+
+/* Zig Zag Rows */
 .feature-item-row {
     margin-bottom: 8rem;
     display: flex;
@@ -195,6 +195,17 @@ a {
 .feature-txtbox h2 {
     font-size: 2.2rem;
     margin-bottom: 1.5rem;
+}
+
+.feature-txtbox small {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.feature-txtbox ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
 }
 
 .feature-txtbox ul li {
@@ -228,18 +239,56 @@ a {
     font-size: 14px;
 }
 
-/* Helpers */
+/* Container */
 .container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 20px;
+    width: 100%;
 }
 
-/* Mobile Responsiveness */
+/* MOBILE FIXES */
 @media (max-width: 900px) {
+
+    /* Fix horizontal overflow */
+    body {
+        overflow-x: hidden !important;
+    }
+
+    .container {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+
+    /* Hero */
+    .hero-section {
+        padding: 6rem 0 10rem 0;
+        text-align: center;
+    }
+
+    .hero-section::after {
+        height: 80px;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem;
+        margin-top: 20px;
+    }
+
+    /* Phone smaller on mobile */
+    .phone_mockup {
+        width: 220px;
+        border: 8px solid #111;
+    }
+
+    /* Stack zig-zag sections */
     .feature-item-row {
         flex-direction: column !important;
-        gap: 3rem;
+        gap: 2rem;
         margin-bottom: 4rem;
         text-align: center;
     }
@@ -248,32 +297,22 @@ a {
         padding: 0 !important;
     }
 
-    .hero-text {
-        margin-bottom: 40px;
+    .feature-txtbox h2 {
+        font-size: 1.8rem;
     }
 
-    .hero-text h1 {
-        font-size: 2.5rem;
-        margin-top: 20px;
-    }
-
-    .hero-section {
-        padding: 6rem 0 10rem 0;
-        text-align: center;
-    }
-
-    /* More padding bottom for wave */
-    .hero-section::after {
-        height: 80px;
-    }
-
-    .phone_mockup {
-        width: 240px;
-        /* Smaller phone on mobile */
-    }
-
-    /* Make sure play button is easily tappable */
+    /* Play button */
     .play-badge {
         height: 60px;
+    }
+
+    /* Pricing card */
+    .pricing-card {
+        padding: 2rem;
+    }
+
+    /* Feature grid */
+    .unit-4 {
+        padding: 30px 20px;
     }
 }
