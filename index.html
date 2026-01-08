@@ -5,79 +5,85 @@
     <title>BizCore - Soluția Profesioniștilor</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700|Lato:300,400,700" rel="stylesheet">
+    <meta name="description" content="BizCore App - Soluția completă offline pentru saloane și profesioniști.">
     <link rel="stylesheet" href="style.css">
+    <!-- Fonts loaded via CSS import, but good to have preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 
 <body>
 
-    <header class="site-navbar">
+    <div class="site-navbar">
         <div class="container">
             <div class="logo">BizCore.</div>
         </div>
-    </header>
+    </div>
 
     <div class="hero-section">
         <div class="container">
-            <div class="row-align">
-                <div class="hero-text" style="flex: 1;">
-                    <h1>Soluția completă pentru profesioniști care nu mai au timp de haos.</h1>
-                    <p class="mb-5">Programări • Clienți • Inventar • SMS. <br>Totul 100% Offline pe telefonul tău.</p>
-                    <div style="margin-top: 30px;">
-                        <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager"
-                            class="btn btn-white">Descarcă Acum</a>
+            <div class="feature-item-row" style="margin-bottom: 0; align-items: center; gap: 0;">
+                <div class="feature-txtbox" style="padding-right: 50px;">
+                    <div class="hero-text">
+                        <h1>Soluția completă pentru profesioniști care nu mai au timp de haos.</h1>
+                        <p>Programări • Clienți • Inventar • SMS. <br>Totul 100% Offline pe telefonul tău.</p>
+                        <div style="margin-top: 30px;">
+                            <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager"
+                                class="btn btn-white">Descarcă Acum</a>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-img" style="flex: 1; text-align: center;">
-                    <div class="phone_wrapper">
-                        <img src="img/biz (1).jpg" alt="App Screenshot" style="width:100%;">
+                <div class="feature-imgbox">
+                    <div class="phone-container-hero">
+                        <div class="phone_mockup">
+                            <img src="img/biz (1).jpg" alt="App Screenshot" style="width:100%; display:block;">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="features-section">
+    <div class="site-section">
         <div class="container">
             <div class="section-heading">
-                <h2>De ce să alegi BizCore?</h2>
-                <p class="text-secondary">Funcționalități premium, fără abonament.</p>
+                <h2 class="text-primary">De ce să alegi BizCore?</h2>
+                <p>Funcționalități premium, fără abonament.</p>
             </div>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
 
-                <div class="feature-item">
-                    <div class="feature-icon">📅</div>
+                <div class="unit-4">
+                    <div class="unit-4-icon">📅</div>
                     <h3>Calendar Inteligent</h3>
                     <p>Vezi toată săptămâna dintr-o privire. Sloturi flexibile și zero suprapuneri.</p>
                 </div>
 
-                <div class="feature-item">
-                    <div class="feature-icon">👥</div>
+                <div class="unit-4">
+                    <div class="unit-4-icon">👥</div>
                     <h3>Bază de Clienți</h3>
                     <p>Istoric complet, căutare instantă și apelare directă din aplicație.</p>
                 </div>
 
-                <div class="feature-item">
-                    <div class="feature-icon">💬</div>
+                <div class="unit-4">
+                    <div class="unit-4-icon">💬</div>
                     <h3>Reminder SMS</h3>
                     <p>Redu no-show-urile cu 70%. Mesaje personalizate trimise automat.</p>
                 </div>
 
-                <div class="feature-item">
-                    <div class="feature-icon">📦</div>
+                <div class="unit-4">
+                    <div class="unit-4-icon">📦</div>
                     <h3>Inventar & Stocuri</h3>
                     <p>Alerte de stoc critic și valoarea totală a investiției în timp real.</p>
                 </div>
 
-                <div class="feature-item">
-                    <div class="feature-icon">🔒</div>
+                <div class="unit-4">
+                    <div class="unit-4-icon">🔒</div>
                     <h3>100% Offline</h3>
                     <p>Datele sunt doar la tine. Fără cloud, fără login, fără internet necesar.</p>
                 </div>
 
-                <div class="feature-item">
-                    <div class="feature-icon">💰</div>
+                <div class="unit-4">
+                    <div class="unit-4-icon">💰</div>
                     <h3>O Singură Plată</h3>
                     <p>Doar 59 lei pe viață. Fără abonamente lunare ascunse.</p>
                 </div>
@@ -86,72 +92,76 @@
         </div>
     </div>
 
-    <div class="container">
+    <div class="site-section" style="background: #f8f9fa;">
+        <div class="container">
 
-        <!-- Zig Zag 1 -->
-        <div class="row-align">
-            <div style="flex:1;">
-                <img src="img/biz (2).jpg" alt="Calendar" class="img-fluid">
+            <!-- Zig Zag 1 -->
+            <div class="feature-item-row">
+                <div class="feature-imgbox">
+                    <img src="img/biz (2).jpg" alt="Calendar">
+                </div>
+                <div class="feature-txtbox" style="padding-left: 50px;">
+                    <h2 class="text-primary">Programări Fără Efort</h2>
+                    <p>Calendarul vizual îți permite să vezi golurile din program imediat. Adaugă clienți noi direct din
+                        agenda telefonului sau creează profile pe loc. BizCore verifică automat conflictele.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 10px;">✓ Durate flexibile (30-120 min)</li>
+                        <li style="margin-bottom: 10px;">✓ Pauze între programări</li>
+                        <li style="margin-bottom: 10px;">✓ Statusuri colorate</li>
+                    </ul>
+                </div>
             </div>
-            <div style="flex:1;">
-                <h2 class="text-primary">Programări Fără Efort</h2>
-                <p>Calendarul vizual îți permite să vezi golurile din program imediat. Adaugă clienți noi direct din
-                    agenda telefonului sau creează profile pe loc. BizCore verifică automat conflictele.</p>
-                <ul style="list-style: none; padding: 0; margin-top: 20px;">
-                    <li style="margin-bottom: 10px;">✓ Durate flexibile (30-120 min)</li>
-                    <li style="margin-bottom: 10px;">✓ Pauze între programări</li>
-                    <li style="margin-bottom: 10px;">✓ Statusuri colorate (Confirmat/Anulat)</li>
-                </ul>
+
+            <!-- Zig Zag 2 -->
+            <div class="feature-item-row reversed">
+                <div class="feature-imgbox">
+                    <img src="img/biz (5).jpg" alt="Clienti">
+                </div>
+                <div class="feature-txtbox" style="padding-right: 50px;">
+                    <h2 class="text-primary">Inventar & Rapoarte</h2>
+                    <p>Nu mai pierde bani pe produse expirate sau stocuri lipsă. BizCore te anunță când e timpul să faci
+                        comandă și îți arată exact câți bani ai investiți în salon.</p>
+                    <ul style="list-style: none; padding: 0; margin-top: 20px;">
+                        <li style="margin-bottom: 10px;">✓ Scanare rapidă consumabile</li>
+                        <li style="margin-bottom: 10px;">✓ Valoare totală inventar</li>
+                        <li style="margin-bottom: 10px;">✓ Ajustare stoc în 3 secunde</li>
+                    </ul>
+                </div>
             </div>
+
         </div>
-
-        <!-- Zig Zag 2 -->
-        <div class="row-align reversed">
-            <div style="flex:1;">
-                <img src="img/biz (5).jpg" alt="Clienti" class="img-fluid">
-            </div>
-            <div style="flex:1;">
-                <h2 class="text-primary">Inventar & Rapoarte</h2>
-                <p>Nu mai pierde bani pe produse expirate sau stocuri lipsă. BizCore te anunță când e timpul să faci
-                    comandă și îți arată exact câți bani ai investiți în salon.</p>
-                <ul style="list-style: none; padding: 0; margin-top: 20px;">
-                    <li style="margin-bottom: 10px;">✓ Scanare rapidă consumabile</li>
-                    <li style="margin-bottom: 10px;">✓ Valoare totală inventar</li>
-                    <li style="margin-bottom: 10px;">✓ Ajustare stoc în 3 secunde</li>
-                </ul>
-            </div>
-        </div>
-
     </div>
 
-    <div class="pricing-section">
+    <div class="site-section text-center">
         <div class="container">
             <div class="section-heading">
-                <h2>Preț Simplu și Onest</h2>
+                <h2 class="text-primary">Preț Simplu și Onest</h2>
                 <p>Fără "costuri surpriză". Plătești o dată, folosești mereu.</p>
             </div>
 
             <div class="pricing-card">
-                <h3>Licență Lifetime</h3>
-                <div class="price">59 Lei <span>/ o singură dată</span></div>
-                <ul style="text-align: left; margin: 30px 0; line-height: 2;">
+                <h3 style="color:var(--primary);">Licență Lifetime</h3>
+                <div style="font-size: 3rem; font-weight: 700; color: #000; margin: 10px 0;">59 Lei</div>
+                <p style="color:#666;">o singură dată / pe viață</p>
+
+                <ul style="text-align: left; margin: 30px 0; line-height: 2; list-style:none;">
                     <li>✅ Toate funcționalitățile incluse</li>
-                    <li>✅ Actualizări gratuite pe viață</li>
-                    <li>✅ Suport prioritar pe email</li>
-                    <li>✅ Fără reclame</li>
+                    <li>✅ Fără abonamente sau comisioane</li>
                     <li>✅ 100% Offline & Privat</li>
+                    <li>✅ Suport inclus</li>
                 </ul>
-                <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager"
-                    class="btn btn-primary">Cumpără Acum pe Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager" class="btn btn-primary"
+                    style="background:linear-gradient(45deg, var(--purple-start), var(--purple-end)); box-shadow: 0 10px 20px rgba(0,0,0,0.2);">Descarcă
+                    de pe Google Play</a>
             </div>
         </div>
     </div>
 
-    <footer class="footer-section">
+    <footer class="site-footer">
         <div class="container">
-            <div class="logo" style="color:#000; margin-bottom: 20px;">BizCore.</div>
+            <div class="logo" style="color:#ccc; margin-bottom: 20px;">BizCore.</div>
             <p>&copy; 2026 Toate drepturile rezervate.</p>
-            <p><a href="mailto:contact@bizcore.agency" style="color: var(--primary);">contact@bizcore.agency</a></p>
+            <p><a href="mailto:contact@bizcore.agency" style="color: var(--purple-end);">contact@bizcore.agency</a></p>
         </div>
     </footer>
 
