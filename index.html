@@ -1,166 +1,1068 @@
 <!DOCTYPE html>
 <html lang="ro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BizCore Web</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>BizCore - Programări Online | Gestiune Salon & Programări</title>
+    <meta name="description"
+        content="Aplicația completă pentru programări, clienți și inventar. 100% offline, fără abonamente, o singură plată pe viață. Pentru manichiuriste, coafeze, cosmeticiene.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
     <style>
+        :root {
+            --bg-primary: #0D0D0D;
+            --bg-secondary: #161616;
+            --bg-card: #1A1A1A;
+            --accent: #C9A227;
+            --accent-hover: #D4AF37;
+            --accent-muted: rgba(201, 162, 39, 0.15);
+            --text-primary: #F5F5F0;
+            --text-secondary: #A8A8A3;
+            --text-muted: #6B6B66;
+            --border: #2A2A2A;
+            --success: #4A7C59;
+            --coral: #E07A5F;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-            overflow: hidden;
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
+        /* Typography */
+        .serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+
+        /* Layout */
         .container {
-            text-align: center;
-            padding: 3rem;
-            position: relative;
-            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 4rem 5rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
-        .logo {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.5));
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.7);
-            font-weight: 300;
-            margin-bottom: 2.5rem;
-        }
-
-        .status {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(34, 197, 94, 0.15);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
-            color: #4ade80;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .status::before {
-            content: '';
-            width: 8px;
-            height: 8px;
-            background: #4ade80;
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
-            50% { opacity: 0.7; box-shadow: 0 0 0 10px rgba(74, 222, 128, 0); }
-        }
-
-        .particles {
+        /* Navigation */
+        nav {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(13, 13, 13, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--bg-primary);
+        }
+
+        .nav-cta {
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-1px);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 140px 0 100px;
+            position: relative;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-muted);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 32px;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .hero h1 {
+            font-size: 3.75rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 28px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            max-width: 500px;
+        }
+
+        .hero-target {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            padding-left: 16px;
+            border-left: 2px solid var(--accent);
+        }
+
+        .hero-cta-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 18px 36px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.25s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 40px rgba(201, 162, 39, 0.25);
+        }
+
+        .btn-primary svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .price-tag {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            width: fit-content;
+        }
+
+        .price-amount {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .price-details {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .price-details strong {
+            color: var(--success);
+            display: block;
+        }
+
+        /* Hero Visual */
+        .hero-visual {
+            position: relative;
+        }
+
+        .phone-mockup {
+            position: relative;
+            width: 320px;
+            height: 650px;
+            background: var(--bg-card);
+            border-radius: 40px;
+            border: 4px solid #2A2A2A;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow:
+                0 50px 100px rgba(0, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 28px;
+            background: var(--bg-primary);
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            padding: 50px 16px 16px;
             height: 100%;
-            pointer-events: none;
             overflow: hidden;
         }
 
-        .particle {
+        .app-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .app-header h3 {
+            font-size: 1rem;
+            color: var(--text-primary);
+        }
+
+        .app-header p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            background: var(--bg-secondary);
+            border-radius: 6px;
+        }
+
+        .calendar-day.active {
+            background: var(--accent);
+            color: var(--bg-primary);
+            font-weight: 600;
+        }
+
+        .calendar-day.has-event {
+            position: relative;
+        }
+
+        .calendar-day.has-event::after {
+            content: '';
             position: absolute;
+            bottom: 3px;
             width: 4px;
             height: 4px;
-            background: rgba(255, 255, 255, 0.3);
+            background: var(--coral);
             border-radius: 50%;
-            animation: rise 15s infinite;
         }
 
-        @keyframes rise {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) scale(1); opacity: 0; }
+        .appointment-preview {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 8px;
+            border-left: 3px solid var(--accent);
         }
 
-        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
-        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
-        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
-        .particle:nth-child(4) { left: 40%; animation-delay: 1s; }
-        .particle:nth-child(5) { left: 50%; animation-delay: 3s; }
-        .particle:nth-child(6) { left: 60%; animation-delay: 5s; }
-        .particle:nth-child(7) { left: 70%; animation-delay: 2.5s; }
-        .particle:nth-child(8) { left: 80%; animation-delay: 1.5s; }
-        .particle:nth-child(9) { left: 90%; animation-delay: 4.5s; }
+        .appointment-preview h4 {
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+        }
 
+        .appointment-preview p {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.875rem;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .floating-badge.offline {
+            top: 20%;
+            right: -20px;
+        }
+
+        .floating-badge.secure {
+            bottom: 25%;
+            left: -30px;
+        }
+
+        .floating-badge .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent-muted);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        /* USP Section */
+        .usp-section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 32px;
+        }
+
+        .usp-card {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .usp-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+
+        .usp-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--accent-muted);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+        }
+
+        .usp-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .usp-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .section-label {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        .feature-block:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-block:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .feature-content h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-content>p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            gap: 14px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '▸';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .feature-result {
+            margin-top: 28px;
+            padding: 16px 20px;
+            background: var(--success);
+            background: linear-gradient(135deg, rgba(74, 124, 89, 0.2) 0%, rgba(74, 124, 89, 0.1) 100%);
+            border: 1px solid rgba(74, 124, 89, 0.3);
+            border-radius: 10px;
+            font-size: 0.95rem;
+            color: #8BC99A;
+        }
+
+        .feature-visual {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 30%, var(--accent-muted) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .visual-icon {
+            font-size: 6rem;
+            opacity: 0.8;
+        }
+
+        /* Comparison Section */
+        .comparison-section {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .comparison-card {
+            padding: 40px;
+            border-radius: 20px;
+        }
+
+        .comparison-card.others {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+        }
+
+        .comparison-card.bizcore {
+            background: linear-gradient(135deg, rgba(201, 162, 39, 0.15) 0%, rgba(201, 162, 39, 0.05) 100%);
+            border: 1px solid rgba(201, 162, 39, 0.3);
+        }
+
+        .comparison-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .comparison-list .icon-x {
+            color: var(--coral);
+            font-weight: bold;
+        }
+
+        .comparison-list .icon-check {
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 140px 0;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section h2 .serif {
+            color: var(--accent);
+        }
+
+        .cta-section>.container>p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .cta-box {
+            display: inline-flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+            padding: 48px 64px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+        }
+
+        .cta-features {
+            display: flex;
+            gap: 32px;
+            margin-top: 16px;
+        }
+
+        .cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .cta-feature::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+        }
+
+        /* Footer */
         footer {
-            margin-top: 3rem;
-            color: rgba(255, 255, 255, 0.4);
-            font-size: 0.85rem;
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--text-secondary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--accent);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .usp-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-block {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .feature-block:nth-child(even) {
+                direction: ltr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 2.25rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .usp-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-box {
+                padding: 32px 24px;
+            }
+
+            .cta-features {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .price-tag {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .floating-badge {
+                display: none;
+            }
+
+            .nav-cta {
+                padding: 10px 20px;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
-    
-    <div class="container">
-        <div class="card">
-            <div class="logo">🚀</div>
-            <h1>Hello, World!</h1>
-            <p class="subtitle">Bun venit pe BizCore Web</p>
-            <div class="status">Site-ul funcționează corect</div>
-            <footer>
-                <p>© 2026 BizCore • Powered by GitHub Pages</p>
-            </footer>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">
+                <span class="logo-icon">B</span>
+                BizCore
+            </a>
+            <a href="https://play.google.com/store/apps/details?id=com.bizcore" class="nav-cta">Descarcă Acum</a>
         </div>
-    </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-badge">100% Offline • Fără Abonamente</div>
+                    <h1>Programări, clienți și inventar. <span class="highlight">Totul în buzunar.</span></h1>
+                    <p class="hero-description">Soluția completă pentru profesioniști care nu mai au timp de haos. Zero
+                        internet necesar. Zero conturi. Zero abonamente.</p>
+                    <p class="hero-target">Pentru manichiuriste, coafeze, cosmeticiene, masori și saloane de
+                        înfrumusețare.</p>
+
+                    <div class="hero-cta-group">
+                        <a href="https://play.google.com/store/apps/details?id=com.bizcore" class="btn-primary">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                            </svg>
+                            Descarcă din Google Play
+                        </a>
+                        <div class="price-tag">
+                            <span class="price-amount">59 lei</span>
+                            <div class="price-details">
+                                <strong>O singură plată, pe viață</strong>
+                                Cât 2 cafele. Fără abonamente.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="phone-mockup">
+                        <div class="phone-notch"></div>
+                        <div class="phone-screen">
+                            <div class="app-header">
+                                <h3>Ianuarie 2026</h3>
+                                <p>Astăzi ai 4 programări</p>
+                            </div>
+                            <div class="calendar-grid">
+                                <div class="calendar-day">L</div>
+                                <div class="calendar-day">M</div>
+                                <div class="calendar-day">M</div>
+                                <div class="calendar-day">J</div>
+                                <div class="calendar-day">V</div>
+                                <div class="calendar-day">S</div>
+                                <div class="calendar-day">D</div>
+                                <div class="calendar-day">1</div>
+                                <div class="calendar-day">2</div>
+                                <div class="calendar-day has-event">3</div>
+                                <div class="calendar-day">4</div>
+                                <div class="calendar-day has-event">5</div>
+                                <div class="calendar-day">6</div>
+                                <div class="calendar-day">7</div>
+                                <div class="calendar-day active">8</div>
+                                <div class="calendar-day has-event">9</div>
+                                <div class="calendar-day">10</div>
+                                <div class="calendar-day has-event">11</div>
+                                <div class="calendar-day">12</div>
+                                <div class="calendar-day">13</div>
+                                <div class="calendar-day">14</div>
+                            </div>
+                            <div class="appointment-preview">
+                                <h4>Maria Ionescu</h4>
+                                <p>10:00 - Manichiură gel • 90 min</p>
+                            </div>
+                            <div class="appointment-preview">
+                                <h4>Ana Popescu</h4>
+                                <p>12:00 - Coafură ocazie • 120 min</p>
+                            </div>
+                            <div class="appointment-preview">
+                                <h4>Elena Dumitrescu</h4>
+                                <p>15:00 - Tratament facial • 60 min</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-badge offline">
+                        <span class="icon">📴</span>
+                        <span>100% Offline</span>
+                    </div>
+                    <div class="floating-badge secure">
+                        <span class="icon">🔒</span>
+                        <span>Date Locale</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USP Section -->
+    <section class="usp-section">
+        <div class="container">
+            <div class="usp-grid">
+                <div class="usp-card">
+                    <div class="usp-icon">📴</div>
+                    <h3>100% Offline</h3>
+                    <p>Funcționează mereu, oriunde. Zero dependență de internet.</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">🔒</div>
+                    <h3>Date Private</h3>
+                    <p>Totul rămâne pe telefonul tău. Fără cloud, fără servere străine.</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">💰</div>
+                    <h3>Fără Abonamente</h3>
+                    <p>O singură plată, acces pe viață. Zero costuri lunare.</p>
+                </div>
+                <div class="usp-card">
+                    <div class="usp-icon">⚡</div>
+                    <h3>Instant</h3>
+                    <p>Fără conturi, fără login. Deschizi și lucrezi imediat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Funcționalități</span>
+                <h2>Tot ce ai nevoie pentru a lucra ca un profesionist</h2>
+                <p>Gestionează programări, clienți, inventar și comunicare — totul dintr-o singură aplicație.</p>
+            </div>
+
+            <!-- Feature 1: Calendar -->
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3>Calendar & Programări Inteligente</h3>
+                    <p>Vezi toată săptămâna dintr-o privire. Programează clienți în câteva secunde cu detectare automată
+                        a conflictelor.</p>
+                    <ul class="feature-list">
+                        <li>Calendar vizual complet cu vedere săptămânală</li>
+                        <li>Sloturi orare bazate pe PROGRAMUL TĂU de lucru</li>
+                        <li>Durate flexibile: 30, 45, 60, 90 sau 120 minute</li>
+                        <li>Detectare automată suprapuneri — zero greșeli</li>
+                        <li>Pauze opționale între clienți pentru pregătire</li>
+                        <li>Status tracking: În așteptare → Confirmat → Finalizat</li>
+                    </ul>
+                    <div class="feature-result">
+                        Rezultat: Zero programări pierdute. Zero telefoane ratate. Control total.
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <span class="visual-icon">📅</span>
+                </div>
+            </div>
+
+            <!-- Feature 2: Clients -->
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3>Bază de Date Clienți</h3>
+                    <p>Toți clienții tăi, organizați perfect. Istoric complet, preferințe salvate, acces instant.</p>
+                    <ul class="feature-list">
+                        <li>Profil complet: nume, telefon, preferințe personale</li>
+                        <li>Istoric programări detaliat — ce servicii, când, cât</li>
+                        <li>Căutare instant — găsești pe oricine în sub 2 secunde</li>
+                        <li>Apel direct din aplicație — un click și vorbești</li>
+                        <li>Salvare automată clienți noi la programare</li>
+                    </ul>
+                    <div class="feature-result">
+                        Rezultat: Relații mai bune cu clienții. Retention mai mare. Venit crescut.
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <span class="visual-icon">👥</span>
+                </div>
+            </div>
+
+            <!-- Feature 3: SMS -->
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3>Reminder SMS</h3>
+                    <p>Trimite remindere profesionale în 1 click. Mesajul tău, vocea ta — cu date inserate automat.</p>
+                    <ul class="feature-list">
+                        <li>Template complet personalizabil</li>
+                        <li>Trimite în 1 click — economisești ore săptămânal</li>
+                        <li>Oră, dată, adresă inserate automat în mesaj</li>
+                        <li>Zero programări uitate de clienți</li>
+                    </ul>
+                    <div class="feature-result">
+                        Rezultat: -70% no-shows. Mai multe programări onorate. Venit predictibil.
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <span class="visual-icon">💬</span>
+                </div>
+            </div>
+
+            <!-- Feature 4: Inventory -->
+            <div class="feature-block">
+                <div class="feature-content">
+                    <h3>Gestiune Inventar & Stocuri</h3>
+                    <p>Tracking complet pentru consumabile și produse. Alerte inteligente pentru stoc scăzut.</p>
+                    <ul class="feature-list">
+                        <li>Tracking produse: consumabile, vânzare, tot</li>
+                        <li>Alerte pentru stoc scăzut sau critic</li>
+                        <li>Categorii personalizabile — organizează cum vrei</li>
+                        <li>Valoare totală inventar în timp real</li>
+                        <li>Ajustare rapidă cantități în 3 secunde</li>
+                    </ul>
+                    <div class="feature-result">
+                        Rezultat: Nu mai rămâi fără produse. Nu mai suprastochezi. Eficiență maximă.
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <span class="visual-icon">📦</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="comparison-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">De ce BizCore?</span>
+                <h2>Diferența care contează</h2>
+                <p>Alte aplicații îți cer bani lunar și îți țin datele pe servere străine. BizCore nu.</p>
+            </div>
+
+            <div class="comparison-grid">
+                <div class="comparison-card others">
+                    <h3><span style="font-size: 1.5rem;">😕</span> Alte aplicații</h3>
+                    <ul class="comparison-list">
+                        <li><span class="icon-x">✕</span> Abonament lunar 30-100 lei</li>
+                        <li><span class="icon-x">✕</span> Comisioane per programare</li>
+                        <li><span class="icon-x">✕</span> Necesită internet permanent</li>
+                        <li><span class="icon-x">✕</span> Date stocate pe servere externe</li>
+                        <li><span class="icon-x">✕</span> Cont obligatoriu, verificări, așteptare</li>
+                        <li><span class="icon-x">✕</span> Reclame sau funcții "premium"</li>
+                    </ul>
+                </div>
+                <div class="comparison-card bizcore">
+                    <h3><span style="font-size: 1.5rem;">✨</span> BizCore</h3>
+                    <ul class="comparison-list">
+                        <li><span class="icon-check">✓</span> 59 lei o singură dată, pe viață</li>
+                        <li><span class="icon-check">✓</span> Zero comisioane, zero costuri ascunse</li>
+                        <li><span class="icon-check">✓</span> 100% offline — funcționează mereu</li>
+                        <li><span class="icon-check">✓</span> Datele rămân PE TELEFONUL TĂU</li>
+                        <li><span class="icon-check">✓</span> Fără cont — deschizi și lucrezi instant</li>
+                        <li><span class="icon-check">✓</span> Toate funcțiile incluse, fără reclame</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Oprește haosul. <span class="serif">Începe să lucrezi profesionist.</span></h2>
+            <p>Competiția ta deja folosește tools profesionale. Tu încă pierzi timp cu agende de hârtie?</p>
+
+            <div class="cta-box">
+                <div class="price-tag">
+                    <span class="price-amount">59 lei</span>
+                    <div class="price-details">
+                        <strong>O singură plată, acces pe viață</strong>
+                        Cât 2 cafele. Zero abonamente. Zero bullshit.
+                    </div>
+                </div>
+                <a href="https://play.google.com/store/apps/details?id=com.bizcore" class="btn-primary">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.5,12.92 20.16,13.19L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
+                    </svg>
+                    Descarcă BizCore Acum
+                </a>
+                <div class="cta-features">
+                    <span class="cta-feature">100% Offline</span>
+                    <span class="cta-feature">Fără Conturi</span>
+                    <span class="cta-feature">Fără Abonamente</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2026 BizCore - Programări Online. Toate drepturile rezervate.</p>
+            <p style="margin-top: 8px;">
+                <a href="mailto:contact@bizcore.agency">contact@bizcore.agency</a>
+            </p>
+        </div>
+    </footer>
 </body>
+
 </html>
