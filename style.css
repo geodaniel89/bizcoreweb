@@ -1,9 +1,8 @@
-/* Mobland Exact Replica Styles */
+/* Mobland Exact Replica Styles - Fixed Mobile & Images */
 @import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500|Muli:300,400,700');
 
 :root {
     --primary: #fd5f00;
-    /* Orange used in some Mobland accents, but main is purple */
     --purple-start: #321575;
     --purple-end: #8D0B93;
     --font-heading: 'Rubik', sans-serif;
@@ -40,8 +39,8 @@ a {
 .hero-section {
     position: relative;
     background: linear-gradient(45deg, var(--purple-start) 0%, var(--purple-end) 100%);
-    padding: 7rem 0 15rem 0;
-    /* Huge bottom padding for the wave */
+    padding: 8rem 0 16rem 0;
+    /* Extra padding for bottom wave */
     color: #fff;
     margin-bottom: 50px;
 }
@@ -51,11 +50,10 @@ a {
     content: "";
     position: absolute;
     bottom: -1px;
-    /* Fix sub-pixel gaps */
     left: 0;
     right: 0;
     height: 150px;
-    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" fill-opacity="1" d="M0,224L48,213.3C96,203,192,181,288,154.7C384,128,480,96,576,96C672,96,768,128,864,160C960,192,1056,224,1152,213.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg"><path fill="%23ffffff" fill-opacity="1" d="M0,256L48,229.3C96,203,192,149,288,154.7C384,160,480,224,576,218.7C672,213,768,139,864,128C960,117,1056,171,1152,197.3C1248,224,1344,224,1392,224L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
     background-size: cover;
     background-repeat: no-repeat;
     pointer-events: none;
@@ -70,7 +68,7 @@ a {
 }
 
 .logo {
-    font-size: 20px;
+    font-size: 24px;
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;
@@ -79,7 +77,7 @@ a {
 
 /* Hero Content */
 .hero-text h1 {
-    font-size: 4rem;
+    font-size: 3.5rem;
     color: #fff;
     margin-bottom: 1.5rem;
     line-height: 1.2;
@@ -87,56 +85,43 @@ a {
 
 .hero-text p {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.8);
     margin-bottom: 2rem;
 }
 
-/* Button Pill */
-.btn {
-    border-radius: 30px;
-    padding: 15px 30px;
-    font-size: 14px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    font-weight: 700;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-}
-
-.btn-white {
-    background: #fff;
-    color: var(--purple-end);
-}
-
-.btn-white:hover {
-    background: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary {
-    background: var(--purple-start);
-    color: #fff;
-}
-
-/* Phone Mockup */
-.phone-container-hero {
-    position: relative;
-    z-index: 10;
-}
-
+/* Phone Mockup Style - Reusable */
 .phone_mockup {
-    width: 320px;
+    width: 280px;
+    /* Slightly smaller for better fit */
     margin: 0 auto;
     background: #111;
     border-radius: 40px;
-    border: 10px solid #222;
+    border: 10px solid #111;
+    /* Clean black bezel */
     overflow: hidden;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.4);
+    /* Strong shadow */
 }
 
-/* Feature Grid with minimal look */
+.phone_mockup img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.play-badge {
+    height: 70px;
+    width: auto;
+    transition: transform 0.2s;
+}
+
+.play-badge:hover {
+    transform: translateY(-3px);
+}
+
+/* Feature Grid */
 .site-section {
     padding: 4rem 0;
 }
@@ -148,7 +133,8 @@ a {
 
 .section-heading h2 {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--purple-start);
 }
 
 .text-primary {
@@ -157,21 +143,24 @@ a {
 
 .unit-4 {
     margin-bottom: 30px;
-    padding: 30px;
+    padding: 40px 30px;
     background: #fff;
-    border-radius: 4px;
+    border-radius: 8px;
     transition: .3s all ease;
     text-align: center;
+    border: 1px solid #f0f0f0;
 }
 
 .unit-4:hover {
-    box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);
+    border-color: transparent;
 }
 
 .unit-4 h3 {
     font-size: 18px;
     margin-bottom: 15px;
+    color: #000;
 }
 
 .unit-4-icon {
@@ -183,7 +172,7 @@ a {
 
 /* Zig Zag Layout */
 .feature-item-row {
-    margin-bottom: 6rem;
+    margin-bottom: 8rem;
     display: flex;
     align-items: center;
     gap: 4rem;
@@ -195,38 +184,46 @@ a {
 
 .feature-imgbox {
     flex: 1;
-}
-
-.feature-imgbox img {
-    border-radius: 10px;
-    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
-    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .feature-txtbox {
     flex: 1;
 }
 
-/* Pricing / Bottom CTA */
+.feature-txtbox h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-txtbox ul li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+/* Pricing */
 .pricing-section {
-    padding: 5rem 0;
+    padding: 6rem 0;
     text-align: center;
     background: #f8f9fa;
 }
 
 .pricing-card {
     background: #fff;
-    padding: 4rem;
-    border-radius: 10px;
+    padding: 3rem;
+    border-radius: 12px;
     display: inline-block;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
 }
 
 /* Footer */
 .site-footer {
     padding: 4rem 0;
     background: #fff;
-    border-top: 1px solid #edf0f5;
+    border-top: 1px solid #eee;
     text-align: center;
     font-size: 14px;
 }
@@ -238,24 +235,45 @@ a {
     padding: 0 20px;
 }
 
+/* Mobile Responsiveness */
 @media (max-width: 900px) {
     .feature-item-row {
         flex-direction: column !important;
-        gap: 2rem;
+        gap: 3rem;
+        margin-bottom: 4rem;
+        text-align: center;
+    }
+
+    .feature-txtbox {
+        padding: 0 !important;
+    }
+
+    .hero-text {
+        margin-bottom: 40px;
     }
 
     .hero-text h1 {
         font-size: 2.5rem;
+        margin-top: 20px;
     }
 
     .hero-section {
-        padding: 8rem 0 8rem 0;
+        padding: 6rem 0 10rem 0;
         text-align: center;
     }
 
-    /* Hide SVG wave on very small screens if it breaks visual flow, or keep it. 
-       Usually Mobland keeps it. */
+    /* More padding bottom for wave */
     .hero-section::after {
         height: 80px;
+    }
+
+    .phone_mockup {
+        width: 240px;
+        /* Smaller phone on mobile */
+    }
+
+    /* Make sure play button is easily tappable */
+    .play-badge {
+        height: 60px;
     }
 }
