@@ -4,398 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BizCore - Soluția Completă pentru Profesioniști</title>
+    <title>BizCore – Programări Online pentru Profesioniști</title>
     <meta name="description"
-        content="BizCore - Programări, clienți și inventar. 100% Offline. O singură plată pe viață. Fără abonamente.">
+        content="Aplicația premium offline pentru programări, clienți și inventar – unică, fără abonament, plată unică.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --bg-body: #F8FAFC;
-            --primary: #0F172A;
-            --accent: #2563EB;
-            --text-main: #334155;
-            --text-muted: #64748B;
-            --white: #FFFFFF;
-            --success: #22C55E;
+        /* Simple carousel script styles (dots) */
+        .carousel-dots button {
+            background: rgba(255, 255, 255, 0.5);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.5;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
-
-        /* Nav */
-        nav {
-            padding: 24px 0;
-            position: absolute;
-            top: 0;
-            width: 100%;
-            z-index: 50;
-        }
-
-        nav .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary);
-            text-decoration: none;
-            letter-spacing: -0.02em;
-        }
-
-        /* Hero */
-        .hero {
-            padding: 140px 0 100px;
-            display: flex;
-            align-items: center;
-            min-height: 90vh;
-        }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .badge {
-            display: inline-flex;
-            align-items: center;
-            background: #EFF6FF;
-            color: var(--accent);
-            padding: 6px 16px;
-            border-radius: 100px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 24px;
-            border: 1px solid #DBEAFE;
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 24px;
-            color: var(--primary);
-            letter-spacing: -0.02em;
-        }
-
-        .hero-desc {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 40px;
-            max-width: 560px;
-        }
-
-        .cta-group {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
-
-        .play-btn-img {
-            height: 60px;
-            width: auto;
-            transition: transform 0.2s;
-            display: block;
-        }
-
-        .play-btn-img:hover {
-            transform: translateY(-2px);
-        }
-
-        .price-tag {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 1.1rem;
-            display: flex;
-            flex-direction: column;
-            line-height: 1.2;
-        }
-
-        .price-tag span {
-            font-size: 0.8rem;
-            color: var(--success);
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-
-        /* Phone Slider */
-        .phone-container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-
-        .phone-frame {
-            position: relative;
-            width: 320px;
-            height: 650px;
-            background: #111;
-            border-radius: 48px;
-            box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.3);
-            border: 10px solid #222;
-            overflow: hidden;
-            z-index: 10;
-        }
-
-        .phone-notch {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 28px;
-            background: #000;
-            border-bottom-left-radius: 16px;
-            border-bottom-right-radius: 16px;
-            z-index: 20;
-        }
-
-        .slider {
-            width: 100%;
-            height: 100%;
-            position: relative;
-        }
-
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.6s ease-in-out;
-            object-fit: cover;
-        }
-
-        .slide.active {
-            opacity: 1;
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 30;
-            background: rgba(0, 0, 0, 0.5);
-            padding: 8px 12px;
-            border-radius: 20px;
-            backdrop-filter: blur(4px);
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: white;
-            transform: scale(1.2);
-        }
-
-        /* Features Sections */
-        .section-title {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 80px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 16px;
-            letter-spacing: -0.02em;
-        }
-
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-        }
-
-        .feature-row {
-            padding: 80px 0;
-            border-top: 1px solid #E2E8F0;
-        }
-
-        .feature-row:nth-child(even) .feature-content {
-            order: 2;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .feature-content h3 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 24px;
-            line-height: 1.2;
-        }
-
-        .feature-list {
-            list-style: none;
-        }
-
-        .feature-list li {
-            position: relative;
-            padding-left: 28px;
-            margin-bottom: 16px;
-            color: var(--text-main);
-            font-size: 1.1rem;
-        }
-
-        .feature-list li::before {
-            content: "▸";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: 700;
-        }
-
-        .result-box {
-            margin-top: 32px;
-            padding: 20px;
-            background: white;
-            border-left: 4px solid var(--success);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-            border-radius: 0 12px 12px 0;
-        }
-
-        .result-box strong {
-            display: block;
-            color: var(--success);
-            font-size: 0.9rem;
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-
-        .result-box p {
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        /* USP Grid */
-        .usp-section {
-            padding: 100px 0;
-            background: var(--primary);
-            color: white;
-            text-align: center;
-        }
-
-        .usp-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 60px;
-        }
-
-        .usp-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 32px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .usp-card h4 {
-            font-size: 1.25rem;
-            margin-bottom: 12px;
-            color: white;
-        }
-
-        .usp-card p {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        /* Final CTA */
-        .final-cta {
-            padding: 120px 0;
-            text-align: center;
-            background: white;
-        }
-
-        footer {
-            background: #F8FAFC;
-            padding: 40px 0;
-            text-align: center;
-            border-top: 1px solid #E2E8F0;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        @media (max-width: 900px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 60px;
-            }
-
-            .hero-grid .phone-container {
-                order: -1;
-            }
-
-            .cta-group {
-                justify-content: center;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .feature-row:nth-child(even) .feature-content {
-                order: 0;
-            }
-
-            .usp-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
+        .carousel-dots button.active {
+            background: var(--color-accent);
         }
     </style>
 </head>
 
 <body>
-
     <nav>
         <div class="container">
-            <a href="#" class="logo">BizCore.</a>
+            <a href="#" class="logo">
+                <div class="logo-mark">B</div>BizCore
+            </a>
         </div>
     </nav>
 
@@ -403,255 +38,197 @@
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="badge">NOU • Versiunea Finală</div>
-                    <h1>Oprește pierderile de timp și bani.</h1>
+                    <div class="hero-tag">BizCore — Programări frizerie, manichiură</div>
+                    <h1>Organizează totul.<br><span>La un alt nivel.</span></h1>
                     <p class="hero-desc">
-                        Soluția completă pentru manichiuriste, coafeze și saloane care nu mai au timp de haos.
-                        Programări, Clienți, SMS și Inventar într-o singură aplicație offline.
+                        Soluția completă pentru profesioniști care nu mai au timp de haos.<br>
+                        Pentru manichiuriste, coafeze, cosmeticiene, măsori și saloane de înfrumusețare.<br>
+                        Oprește pierderile de timp și bani. Începe să lucrezi ca un profesionist adevărat.
                     </p>
-
-                    <div class="cta-group">
-                        <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager">
-                            <img src="img/google-play-badge.png" alt="Disponibil pe Google Play" class="play-btn-img">
-                        </a>
-                        <div class="price-tag">
-                            <span>Plată Unică</span>
-                            59 Lei / Viață
-                        </div>
+                    <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager" target="_blank">
+                        <img src="img/google-play-badge.png" alt="Descarcă de pe Google Play" class="play-btn-img">
+                    </a>
+                    <div class="pricing-pill">
+                        59 Lei <span>Plată unică pe viață</span>
                     </div>
                 </div>
-
-                <div class="phone-container">
+                <div class="phone-wrapper">
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
-                        <div class="slider" id="phoneSlider">
-                            <img src="img/biz (5).jpg" class="slide active" alt="Screen 1">
-                            <img src="img/biz (1).jpg" class="slide" alt="Screen 2">
-                            <img src="img/biz (7).jpg" class="slide" alt="Screen 3">
-                            <img src="img/biz (2).jpg" class="slide" alt="Screen 4">
-                            <img src="img/biz (3).jpg" class="slide" alt="Screen 5">
+                        <div class="slider-track" id="carouselTrack">
+                            <img src="img/biz (1).jpg" alt="Screenshot 1">
+                            <img src="img/biz (2).jpg" alt="Screenshot 2">
+                            <img src="img/biz (3).jpg" alt="Screenshot 3">
+                            <img src="img/biz (4).jpg" alt="Screenshot 4">
+                            <img src="img/biz (5).jpg" alt="Screenshot 5">
+                            <img src="img/biz (6).jpg" alt="Screenshot 6">
+                            <img src="img/biz (7).jpg" alt="Screenshot 7">
                         </div>
-                        <div class="slider-dots" id="sliderDots">
-                            <!-- Dots generated by JS -->
-                        </div>
+                        <div class="carousel-dots" id="carouselDots"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- GESTIONARE PROGRAMĂRI -->
-    <section class="feature-row">
+    <section class="features">
         <div class="container">
-            <div class="feature-grid">
-                <div class="feature-content">
-                    <h3>Gestionare Programări Inteligentă</h3>
-                    <ul class="feature-list">
-                        <li>Calendar vizual complet — vezi toată săptămâna</li>
-                        <li>Sloturi orare personalizate — bazate pe programul tău</li>
-                        <li>Durate flexibile & Conflict detection automat</li>
-                        <li>Pauze opționale între clienți</li>
-                        <li>Status tracking: În așteptare → Confirmat → Finalizat</li>
-                    </ul>
-                    <div class="result-box">
-                        <strong>Rezultat</strong>
-                        <p>Zero programări pierdute. Zero telefoane ratate. Control total.</p>
-                    </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>GESTIONARE PROGRAMĂRI INTELIGENTĂ</h3>
+                    <p>
+                        ▸ Calendar vizual complet — vezi toată săptămâna dintr-o privire<br>
+                        ▸ Sloturi orare personalizate — bazate pe PROGRAMUL TĂU de lucru<br>
+                        ▸ Durate flexibile — 30, 45, 60, 90 sau 120 minute per serviciu<br>
+                        ▸ Conflict detection automat — zero suprapuneri, zero greșeli<br>
+                        ▸ Pauze opționale între clienți — timpul tău de pregătire contează<br>
+                        ▸ Status tracking complet — În așteptare → Confirmat → Finalizat
+                    </p>
+                    <p><strong>Rezultat:</strong> Zero programări pierdute. Zero telefoane ratate. Control total.</p>
                 </div>
-                <!-- Optional: Image specific to feature could go here, for now using copy text focus -->
-                <div class="feature-content"
-                    style="background:#F1F5F9; border-radius:32px; height:400px; display:flex; align-items:center; justify-content:center;">
-                    <img src="img/biz (5).jpg"
-                        style="max-height:90%; border-radius:20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <div class="feature-card">
+                    <h3>BAZĂ DE DATE CLIENȚI PE TELEFONUL TAU</h3>
+                    <p>
+                        ▸ Profil complet pentru fiecare client — nume, telefon, preferințe<br>
+                        ▸ Istoric programări detaliat — știi exact ce servicii, când și cât<br>
+                        ▸ Căutare instant — găsești pe oricine în sub 2 secunde<br>
+                        ▸ Apel direct din aplicație — un click și vorbești<br>
+                        ▸ Salvare automată — clienți noi adăugați instant la programare
+                    </p>
+                    <p><strong>Rezultat:</strong> Relații client mai bune. Retention mai mare. Bani mai mulți.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>REMINDER SMS</h3>
+                    <p>
+                        ▸ Template complet personalizabil — mesajul tău, vocea ta<br>
+                        ▸ Trimite în 1 click — economisești ore întregi săptămânal<br>
+                        ▸ Date automate incluse — oră, dată, adresă inserate automat<br>
+                        ▸ Zero programări uitate — clienții primesc reminder profesionist
+                    </p>
+                    <p><strong>Rezultat:</strong> -70% no‑shows. Mai multe programări onorate. Venit predictibil.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>GESTIUNE INVENTAR & STOCURI</h3>
+                    <p>
+                        ▸ Tracking complet produse — consumabile, produse vânzare, tot<br>
+                        ▸ Alerte inteligente — notificări pentru stoc scăzut sau critic<br>
+                        ▸ Categorii personalizabile — organizează exact cum vrei<br>
+                        ▸ Valoare totală inventar — vezi investiția ta în timp real<br>
+                        ▸ Ajustare rapidă cantități — update în 3 secunde
+                    </p>
+                    <p><strong>Rezultat:</strong> Nu mai rămâi fără produse. Nu mai suprastochezi. Eficiență maximă.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>PROGRAM DE LUCRU PERSONALIZAT</h3>
+                    <p>
+                        ▸ Ore diferite pentru fiecare zi — flexibilitate totală<br>
+                        ▸ Zile libere planificate — vacanțe și sărbători pre‑setate<br>
+                        ▸ Program special pentru săptămâni atipice — adaptare instant<br>
+                        ▸ Aplicația știe automat — când ești disponibilă, când nu
+                    </p>
+                    <p><strong>Rezultat:</strong> Clienții văd doar sloturile când CHIAR ești disponibilă.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>NOTIȚE & ORGANIZARE RAPIDĂ</h3>
+                    <p>
+                        ▸ Notițe instant — ideile nu mai dispar<br>
+                        ▸ Liste de cumpărături — produse de comandat organizate<br>
+                        ▸ To‑do tasks — ce trebuie făcut, când trebuie făcut
+                    </p>
+                    <p><strong>Rezultat:</strong> Tot ce ți‑ar trebui un calendar pe hârtie, dar inteligent.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- BAZA DE DATE CLIENTI -->
-    <section class="feature-row">
+    <section class="features" style="background:#fff;">
         <div class="container">
-            <div class="feature-grid">
-                <div class="feature-content"
-                    style="background:#F1F5F9; border-radius:32px; height:400px; display:flex; align-items:center; justify-content:center;">
-                    <img src="img/biz (2).jpg"
-                        style="max-height:90%; border-radius:20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                </div>
-                <div class="feature-content">
-                    <h3>Bază Clienți pe Telefonul Tău</h3>
-                    <ul class="feature-list">
-                        <li>Profil complet & Istoric detaliat pentru fiecare client</li>
-                        <li>Căutare instant — găsești pe oricine în sub 2 secunde</li>
-                        <li>Apel direct din aplicație — un click și vorbești</li>
-                        <li>Salvare automată — clienți noi adăugați instant</li>
-                    </ul>
-                    <div class="result-box">
-                        <strong>Rezultat</strong>
-                        <p>Relații mai bune. Retention mai mare. Bani mai mulți.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- REMINDER SMS & INVENTAR (Combined Row for flow) -->
-    <section class="feature-row">
-        <div class="container">
-            <div class="section-title">
-                <h2>Automatizare & Organizare</h2>
-                <p>Scapă de sarcinile repetitive.</p>
-            </div>
-            <div class="feature-grid">
-                <div class="feature-content">
-                    <h3>Reminder SMS</h3>
-                    <ul class="feature-list">
-                        <li>Template complet personalizabil — vocea ta</li>
-                        <li>Trimite în 1 click — economisești ore întregi</li>
-                        <li>Date automate (oră, dată) inserate singure</li>
-                    </ul>
-                    <div class="result-box">
-                        <strong>Rezultat</strong>
-                        <p>-70% no-shows. Venit predictibil.</p>
-                    </div>
-                </div>
-
-                <div class="feature-content">
-                    <h3>Gestiune Inventar</h3>
-                    <ul class="feature-list">
-                        <li>Tracking complet produse & Alerte stoc critic</li>
-                        <li>Valoare totală inventar în timp real</li>
-                        <li>Ajustare rapidă cantități — update în 3 secunde</li>
-                    </ul>
-                    <div class="result-box">
-                        <strong>Rezultat</strong>
-                        <p>Nu mai rămâi fără produse. Nu mai suprastochezi.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 100% OFFLINE / USP Section -->
-    <section class="usp-section">
-        <div class="container">
-            <h2 style="font-size: 2.5rem; margin-bottom: 16px;">100% Offline. 100% Securitate.</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 60px; color: rgba(255,255,255,0.8);">Datele tale rămân pe
-                telefonul tău.</p>
-
-            <div class="usp-grid">
-                <div class="usp-card">
-                    <h4>Zero Internet Necesar</h4>
-                    <p>Funcționează MEREU, oriunde. Nu depinde de servere sau semnal.</p>
-                </div>
-                <div class="usp-card">
-                    <h4>Fără Cont / Login</h4>
-                    <p>Deschizi și lucrezi instant. Fără parole uitate.</p>
-                </div>
-                <div class="usp-card">
-                    <h4>Backup Sigur</h4>
-                    <p>Export/Import complet când vrei tu. Tu controlezi totul.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- De Ce BizCore? -->
-    <section class="feature-row" style="background: white;">
-        <div class="container">
-            <div class="section-title">
-                <h2>De ce BizCore este diferit?</h2>
-            </div>
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 800px; margin: 0 auto;">
-                <div style="display:flex; gap:12px; align-items:center;">
-                    <div style="color:var(--success); font-weight:bold; font-size:1.2rem;">✓</div>
-                    <div style="font-size:1.1rem; font-weight:500;">Simplu — înveți tot în sub 2 minute</div>
-                </div>
-                <div style="display:flex; gap:12px; align-items:center;">
-                    <div style="color:var(--success); font-weight:bold; font-size:1.2rem;">✓</div>
-                    <div style="font-size:1.1rem; font-weight:500;">Rapid ca fulgerul — zero lag</div>
-                </div>
-                <div style="display:flex; gap:12px; align-items:center;">
-                    <div style="color:var(--success); font-weight:bold; font-size:1.2rem;">✓</div>
-                    <div style="font-size:1.1rem; font-weight:500;">Complet — toate funcțiile incluse</div>
-                </div>
-                <div style="display:flex; gap:12px; align-items:center;">
-                    <div style="color:var(--success); font-weight:bold; font-size:1.2rem;">✓</div>
-                    <div style="font-size:1.1rem; font-weight:500;">Fără reclame enervante</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="final-cta">
-        <div class="container">
-            <h2
-                style="font-size: 3rem; font-weight: 800; color: var(--primary); margin-bottom: 24px; letter-spacing: -0.02em;">
-                Stop Pierderilor.<br>Start Profesionalismului.</h2>
-            <p
-                style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">
-                Transformă haosul în ordine. Clienții în venit recurent. Timpul în bani.
-                Zero abonamente. Zero costuri ascunse.
+            <h2 style="text-align:center; font-size:2.5rem; margin-bottom:40px;">100% OFFLINE • 100% SECURITATE • 100%
+                AL TĂU</h2>
+            <p style="text-align:center; max-width:800px; margin:0 auto; color:var(--color-muted); font-size:1.1rem;">
+                ▸ Zero internet necesar — funcționează MEREU, oriunde<br>
+                ▸ Zero conturi sau login — deschizi și lucrezi instant<br>
+                ▸ Datele tale rămân pe telefonul TĂU — nu în cloud străin<br>
+                ▸ Export/Import complet — backup sigur când vrei tu<br>
+                ▸ Zero dependență de servere — tu controlezi totul
             </p>
+        </div>
+    </section>
 
-            <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager"
-                style="display: inline-block;">
-                <img src="img/google-play-badge.png" alt="Descarcă Acum" style="height: 80px; width: auto;">
+    <section class="features" style="background:#f9fafb; padding:80px 0;">
+        <div class="container" style="text-align:center;">
+            <h2 style="font-size:2.5rem; margin-bottom:20px;">DE CE BIZCORE ESTE DIFERIT?</h2>
+            <ul
+                style="list-style:none; padding:0; max-width:800px; margin:0 auto; font-size:1.1rem; color:var(--color-muted);">
+                <li>✓ Simplu și intuitiv — înveți tot în sub 2 minute</li>
+                <li>✓ Rapid ca fulgerul — zero lag, zero așteptare, răspuns instant</li>
+                <li>✓ Complet gratuit — toate funcțiile incluse, fără premium ascuns</li>
+                <li>✓ Fără reclame enervante — experiență curată, profesională</li>
+                <li>✓ Română & Engleză — interfață în limba ta nativă</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="features" style="background:#fff; padding:80px 0; text-align:center;">
+        <div class="container">
+            <h2 style="font-size:2.5rem; margin-bottom:20px;">STOP PIERDERILOR. START PROFESIONALISMULUI.</h2>
+            <p style="font-size:1.2rem; color:var(--color-primary); margin-bottom:30px;">
+                Descărcă BizCore acum și transformă haosul în ordine. Clienții în venit recurent. Timpul în bani.
+            </p>
+            <a href="https://play.google.com/store/apps/details?id=com.appointmentmanager" target="_blank">
+                <img src="img/google-play-badge.png" alt="Descarcă de pe Google Play" class="play-btn-img"
+                    style="width:220px;">
             </a>
-            <div style="margin-top: 24px; font-weight: 700; color: var(--primary);">
-                59 Lei <span style="color: var(--text-muted); font-weight: 400;">/ Plată Unică pe Viață</span>
-            </div>
+            <p style="margin-top:20px; font-size:0.9rem; color:var(--color-muted);">Programări • Clienți • Inventar •
+                SMS • Notițe — Totul într‑o aplicație.<br>Zero abonamente. Zero costuri ascunse. Zero bullshit.</p>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            © 2026 BizCore. Toate drepturile rezervate.<br>
-            <a href="mailto:contact@bizcore.agency"
-                style="color: inherit; text-decoration: none; margin-top: 8px; display: inline-block;">contact@bizcore.agency</a>
+            <p>© 2026 BizCore. Toate drepturile rezervate.</p>
+            <p style="margin-top:8px; color:var(--color-muted);">contact@bizcore.agency</p>
         </div>
     </footer>
 
     <script>
-        // Simple, robust slider logic
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.getElementById('sliderDots');
-        let currentSlide = 0;
-        const intervalTime = 5000; // 5 seconds between slides (user requested "timp mare")
-        let slideInterval;
+        // Simple carousel logic with dots and 5‑second interval
+        const track = document.getElementById('carouselTrack');
+        const images = track.querySelectorAll('img');
+        const dotsContainer = document.getElementById('carouselDots');
+        let currentIndex = 0;
+        const total = images.length;
 
         // Create dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-                resetInterval();
-            });
-            dotsContainer.appendChild(dot);
-        });
-
-        const dots = document.querySelectorAll('.dot');
-
-        function goToSlide(n) {
-            slides[currentSlide].classList.remove('active');
-            dots[currentSlide].classList.remove('active');
-            currentSlide = (n + slides.length) % slides.length;
-            slides[currentSlide].classList.add('active');
-            dots[currentSlide].classList.add('active');
+        for (let i = 0; i < total; i++) {
+            const btn = document.createElement('button');
+            btn.setAttribute('aria-label', 'Slide ' + (i + 1));
+            if (i === 0) btn.classList.add('active');
+            btn.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(btn);
         }
+        const dots = dotsContainer.querySelectorAll('button');
 
+        function goToSlide(index) {
+            currentIndex = index;
+            const offset = -index * images[0].clientWidth;
+            track.style.transform = `translateX(${offset}px)`;
+            updateDots();
+        }
+        function updateDots() {
+            dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
+        }
         function nextSlide() {
-            goToSlide(currentSlide + 1);
+            currentIndex = (currentIndex + 1) % total;
+            goToSlide(currentIndex);
         }
-
-        function resetInterval() {
-            clearInterval(slideInterval);
-            slideInterval = setInterval(nextSlide, intervalTime);
-        }
-
-        // Start auto play
-        slideInterval = setInterval(nextSlide, intervalTime);
+        // Auto‑advance every 5 seconds
+        let autoPlay = setInterval(nextSlide, 5000);
+        // Pause on hover
+        track.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        track.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(nextSlide, 5000);
+        });
     </script>
 </body>
 
